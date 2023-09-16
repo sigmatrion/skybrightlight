@@ -200,8 +200,8 @@
             }
 
             .slide img {
-                width: 300px; /* Fixed width */
-                height: 300px; /* Fixed height */
+                width: 400px; /* Fixed width */
+                height: 400px; /* Fixed height */
                 object-fit: cover; /* Crop to fit */
             }
         }
@@ -283,7 +283,7 @@
             document.querySelector(".slides").style.transform = `translateX(${translateValue}px)`;
 
             // Adjust the interval for mobile screens
-            var intervalDuration = window.innerWidth <= 768 ? 100 : 2000;
+            var intervalDuration = window.innerWidth <= 768 ? 4000 : 2000;
 
             setTimeout(showSlides, intervalDuration); // Change slide every 2 seconds for desktop and every 3 seconds for mobile (adjust as needed)
         }
