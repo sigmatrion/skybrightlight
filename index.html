@@ -122,7 +122,7 @@
         }
 
         .slide {
-            flex: 0 0 25%; /* Display 4 images at a time */
+            flex: 1; /* Display 4 images at a time */
             margin-right: 10px;
         }
 
@@ -201,17 +201,50 @@
             }
 
             .slide img {
-                width: 400px; /* Fixed width */
-                height: 400px; /* Fixed height */
+                width: 300px; /* Fixed width */
+                height: 300px; /* Fixed height */
                 object-fit: cover; /* Crop to fit */
             }
             .quote{
                 font-size: 15px;
                 padding-bottom: 20px;
+                margin-bottom: 50px;
             }
             .contact-info{
                 font-size: 15px;
             }
+
+            .slides {
+                display: flex;
+                animation: slide 10s linear infinite;
+            }
+            @keyframes slide {
+                0%, 100% {
+                    transform: translateX(0);
+                }
+                12.5% {
+                    transform: translateX(-12.5%);
+                }
+                25% {
+                    transform: translateX(-25%);
+                }
+                37.5% {
+                    transform: translateX(-37.5%);
+                }
+                50% {
+                    transform: translateX(-50%);
+                }
+                62.5% {
+                    transform: translateX(-62.5%);
+                }
+                75% {
+                    transform: translateX(-75%);
+                }
+                87.5% {
+                    transform: translateX(-87.5%);
+                }
+            }
+
         }
 
     </style>
@@ -264,10 +297,10 @@
 
             <h1>Contact Us</h1>
 
-            <p>Sushil Kumar<br> Apael, Sukhpura</p>
+            <p class="quote">Sushil Kumar<br> Apael, Sukhpura</p>
             <p>Assembly Address : <br> 11/2 , Sukhpura</p>
             <p>Feel the style and elegance with the bright lights</p>
-            <p>किसी भी प्रश्न के लिए या अपने घर के लिए एक विशेष LED प्रकाशन समाधान हेतु<br> आज ही हमारे विशेषज्ञों से संपर्क करें!</p>
+            <p class="quote">किसी भी प्रश्न के लिए या अपने घर के लिए एक विशेष LED प्रकाशन समाधान हेतु<br> आज ही हमारे विशेषज्ञों से संपर्क करें!</p>
             <div class="contact-info">
                 <p>Email: info@yourledcompany.com</p>
                 <p>Phone: 84190277281</p>
@@ -279,22 +312,27 @@
     
     <script>
         var slideIndex = 0;
-        showSlides();
-    
         function showSlides() {
             var slides = document.querySelectorAll(".slide");
             slideIndex++;
             if (slideIndex >= slides.length - 3) {
                 slideIndex = 0;
             }
-            var translateValue = -slideIndex * (slides[0].offsetWidth + 10); // Adjust for spacing
+            
+            // Adjust the translation amount for mobile screens
+            var translateValue = -slideIndex * (window.innerWidth <= 768 ? window.innerWidth : slides[0].offsetWidth + 10);
+            
             document.querySelector(".slides").style.transform = `translateX(${translateValue}px)`;
 
             // Adjust the interval for mobile screens
-            var intervalDuration = window.innerWidth <= 768 ? 4000 : 2000;
+            var intervalDuration = window.innerWidth <= 768 ? 2000 : 4000; // Adjust the time duration as needed
 
-            setTimeout(showSlides, intervalDuration); // Change slide every 2 seconds for desktop and every 3 seconds for mobile (adjust as needed)
+            setTimeout(showSlides, intervalDuration);
         }
+
+        // Initial call to start the slideshow
+        showSlides();
+
     
         function animateHeaderBackground() {
             let header = document.querySelector('header');
