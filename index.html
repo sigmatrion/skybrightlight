@@ -169,22 +169,24 @@
         /* Mobile-first responsive design */
         @media screen and (max-width: 768px) {
             .header-content h1 {
-                font-size: 15; /* Adjust font size for smaller screens */
+                font-size: 15px; /* Adjust font size for smaller screens */
             }
 
             h2 {
                 font-size: 10px; /* Adjust font size for smaller screens */
             }
+
             p {
                 font-size: 12px; /* Adjust font size for smaller screens */
             }
 
             .header {
-                padding: 10px 0;
+                padding: 10px 0; /* Adjust padding for smaller screens */
             }
+
             .icon-image {
-            width: 100px; /* Adjust the width to decrease the size */
-            height: 50px; /* Adjust the height to decrease the size */
+                width: 100px; /* Adjust the width to decrease the size */
+                height: 50px; /* Adjust the height to decrease the size */
             }
 
             .cta-button {
@@ -196,13 +198,14 @@
                 text-decoration: none;
                 border-radius: 5px;
             }
-            .slide img {
-            width: 300px; /* Fixed width */
-            height: 300px; /* Fixed height */
-            object-fit: cover; /* Crop to fit */
-            }
 
+            .slide img {
+                width: 300px; /* Fixed width */
+                height: 300px; /* Fixed height */
+                object-fit: cover; /* Crop to fit */
+            }
         }
+
     </style>
 </head>
 <body>
@@ -278,7 +281,11 @@
             }
             var translateValue = -slideIndex * (slides[0].offsetWidth + 10); // Adjust for spacing
             document.querySelector(".slides").style.transform = `translateX(${translateValue}px)`;
-            setTimeout(showSlides, 2000); // Change slide every 2 seconds (adjust as needed)
+
+            // Adjust the interval for mobile screens
+            var intervalDuration = window.innerWidth <= 768 ? 100 : 2000;
+
+            setTimeout(showSlides, intervalDuration); // Change slide every 2 seconds for desktop and every 3 seconds for mobile (adjust as needed)
         }
     
         function animateHeaderBackground() {
