@@ -118,11 +118,11 @@
 
         .slides {
             display: flex;
-            animation: slide 10s linear infinite;
+            animation: slide 5s linear infinite;
         }
 
         .slide {
-            flex: 1; /* Display 4 images at a time */
+            flex: 1; 
             margin-right: 10px;
         }
 
@@ -141,16 +141,29 @@
             0%, 100% {
                 transform: translateX(0);
             }
+            12.5% {
+                transform: translateX(-12.5%);
+            }
             25% {
                 transform: translateX(-25%);
+            }
+            37.5% {
+                transform: translateX(-37.5%);
             }
             50% {
                 transform: translateX(-50%);
             }
-            85% {
-                transform: translateX(-85%);
+            62.5% {
+                transform: translateX(-62.5%);
+            }
+            75% {
+                transform: translateX(-75%);
+            }
+            87.5% {
+                transform: translateX(-87.5%);
             }
         }
+
 
         @keyframes GradientAnimation {
             0% {
@@ -201,8 +214,8 @@
             }
 
             .slide img {
-                width: 350px; /* Fixed width */
-                height: 350px; /* Fixed height */
+                width: 200px; /* Fixed width */
+                height: 200px; /* Fixed height */
                 object-fit: cover; /* Crop to fit */
             }
             .quote{
@@ -212,12 +225,7 @@
             }
             .contact-info{
                 font-size: 15px;
-            }
-
-            .slides {
-                display: flex;
-                animation: slide 10s linear infinite;
-            }
+            }           
 
         }
 
@@ -269,11 +277,11 @@
             
             <p class="quote">SkyBrightLight LED बल्ब्स का चमकता जादू: आपके घर को बनाएं आलोकित और सुंदर<br>हमारा काम हमारी भविष्य बनाता है, और हम आपके भविष्य को सशक्त बनाने के लिए पूरी तरह समर्पित हैं।<p>
 
-            <h1>Contact Us</h1>
-
             <p>Sushil Kumar<br> Apael, Sukhpura</p>
             <p>Assembly Address : <br> 11/2 , Sukhpura</p>
             <p>Feel the style and elegance with the bright lights</p>
+
+            <h1>Contact Us</h1>
             <p class="quote">किसी भी प्रश्न के लिए या अपने घर के लिए एक विशेष LED प्रकाशन समाधान हेतु<br> आज ही हमारे विशेषज्ञों से संपर्क करें!</p>
             <div class="contact-info">
                 <p>Email: info@yourledcompany.com</p>
